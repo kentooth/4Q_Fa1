@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control</title>
+</head>
+<body>
+    <div id="name" class="name"></div>
+    <script>
+        function numberPrompt(){
+            let num;
+            do {
+                num = prompt("Please enter a number: ");
+            } while (isNaN(num) || num.trim() === "");
+            return parseInt(num, 10);
+        }
+        
+        function generateShape(num){
+            let name = 'Number inputted: ' + num + '<br>';
+            if (num % 2 === 1) {
+                for (let x = num; x >= 1; x--) {
+                    for (let y = 0; y < num; y++) {
+                        name += x + ' ';
+                    }
+                    name += '<br>';
+                }
+            } else {
+                for (let x = num; x >= 1; x--) {
+                    for (let y = 0; y < x; y++) {
+                        name += x + ' ';
+                    }
+                    name += '<br>';
+                }
+            }
+            return name;
+        }
+
+        document.getElementById('name').innerHTML = generateShape(numberPrompt());
+    </script>
+</body>
+</html>
